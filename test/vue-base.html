@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app" class="app">
+  {{code}},
+  {{message}},
+  {{data}}
+  <h2>{{school.name}}</h2>
+  <ui>
+    <li>
+      {{campus[2]}}
+    </li>
+  </ui>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+
+  var app = new Vue({
+    //id选择器
+    // el:"#app",
+    //类选择器
+    //el:".app",
+    //标签选择器
+    el: "div",
+    data: {
+      code: "1000",
+      message: "hello world",
+      data: "保存成功",
+     //复杂数据类型
+      school:{
+        name:"北京大学",
+        "city":"中国北京"
+      },
+      campus:["北京","深圳","成都"]
+    }
+  })
+</script>
+</body>
+</html>

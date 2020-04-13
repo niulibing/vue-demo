@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-model</title>
+</head>
+<body>
+
+<!--html结构-->
+<div ID="app">
+
+  <button type="button" value="改变message的值" @click="changeMessage">修改message</button>
+  <input type="text" v-model="message" @keyup.enter="getMessage">
+  <h1>{{message}}</h1>
+
+</div>
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: "长安马自达"
+    },
+    methods: {
+      getMessage: function () {
+        alert(this.message)
+      },
+      changeMessage:function () {
+        this.message="后台开发正在学习vue前端开发"
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

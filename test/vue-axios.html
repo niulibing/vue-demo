@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue-axios</title>
+</head>
+<body>
+
+<div id="app">
+
+  <input type="button" value="讲个笑话" @click="getJoke">
+  <p>{{joke}}</p>
+</div>
+<!-- 1. 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--官网提供的axios在线地址-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+
+  /**
+   * axios回调函数中的this已经改变，无法访问到data中数据
+   * 把this保存起来，回调函数中直接使用保存的this即可
+   * 和本地应用的最大区别就是改变了数据来源
+   * @type {Vue}
+   */
+  //挂载视图数据
+  var app = new Vue({
+
+    el: "#app",
+    data: {
+      joke: "笑话源于生活，乐此不疲"
+    },
+    methods: {
+      getJoke: function () {
+        //将this暂存起来
+        var jok = this
+        //编写逻辑
+        axios.get("https://autumnfish.cn/api/joke")
+          .then(function (response) {
+            console.log(response.data)
+            jok.joke = response.data
+          }, function (error) {
+            console.log(error)
+          })
+      }
+    }
+  })
+
+
+</script>
+</body>
+</html>

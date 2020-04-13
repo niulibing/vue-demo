@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on指令基础</title>
+</head>
+<body>
+<!--2. html结构-->
+<div id="app">
+  <!--单击事件-->
+  <input type="button" value="v-on指令" v-on:click="devJava">
+  <input type="button" value="v-on简写" @click="devGo">
+  <!--双击事件-->
+  <input type="button" value="双击事件" @dblclick="devvue">
+  <!--通过chang改变数据-->
+  <h2 @click="changeFood">{{food}}</h2>
+</div>
+<!-- 1. 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</body>
+<script>
+  // 3.创建vue实例
+  var app = new Vue({
+    el: "#app",
+    data: {
+      food: "西虹市炒蛋"
+    },
+    methods: {
+      changeFood: function () {
+        alert(this.food)
+        console.log(this.food)
+      },
+      devJava: function () {
+        alert("Java开发");
+      },
+      devGo: function () {
+        alert("go开发")
+      },
+      devvue: function () {
+        alert("vue开发")
+      }
+    }
+  })
+</script>
+</html>

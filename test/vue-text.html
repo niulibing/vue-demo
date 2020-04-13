@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue指令学习</title>
+</head>
+<body>
+
+<div id="app">
+  <!--v-text，默认写法：会覆盖掉标签中的所有内容-->
+  <h2 v-text="msg+'：你好，vue！'">阿特兹</h2>
+  第二种写法：插值表达式，只会替换部分内容
+  <h2>{{msg+""}}:阿特兹{{code}}</h2>
+  <h2 v-text="'响应码：'+code"></h2>
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+  var app= new Vue({
+    el:"#app",
+    data:{
+      msg:"hello  vue",
+      code:"10000"
+    }
+  })
+</script>
+</body>
+</html>

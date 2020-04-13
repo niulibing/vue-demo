@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-show指令</title>
+</head>
+<body>
+
+<div id="app">
+
+  <button type="button" value="图片显示开关" @click="changeShowStatus">图片显示开关</button>
+  <img v-show="isShow" src="./image/mmexport1586353479763.jpg" alt="">
+</div>
+<!-- 1. 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+
+  var app = new Vue({
+
+    el: "#app",
+    data: {
+      isShow: false
+    },
+    methods: {
+      changeShowStatus: function () {
+        this.isShow = !this.isShow
+      }
+
+    }
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-html指令</title>
+</head>
+<body>
+
+<div id="app">
+
+  <p v-html="context"></p>
+  <p v-text="context"></p>
+</div>
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+  var app = new Vue({
+    el: "#app",
+    data: {
+      //普通文本
+      //context: "http://www.baidu.com"
+      //带有html格式的内容
+      context: "<a href='http://www.baidu.com'>百度一下</a>"
+    }
+
+  })
+</script>
+</body>
+</html>

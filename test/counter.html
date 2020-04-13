@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>计数器</title>
+</head>
+<body>
+<!--html布局-->
+<div id="app">
+  <!--计数器功能区域-->
+  <div class="input-num">
+    <button type="button" value="-" @click="reduce">
+      -
+    </button>
+    <span>{{num}}</span>
+    <button type="button" value="+" @click="plus">
+      +
+    </button>
+  </div>
+</div>
+<!-- 1. 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+  //实例化vue
+  var app = new Vue({
+    //通过el函数挂载到id为app的div标签上
+    el: "#app",
+    data: {
+      num: 1
+    },
+    methods: {
+      //增加
+      plus: function () {
+        if (this.num < 10) {
+          this.num++;
+        } else {
+          alert("不要再点了，已经最大了。")
+        }
+      },
+      //减少
+      reduce: function () {
+        if (this.num > 0) {
+          this.num--;
+        } else {
+          alert("已经最小了")
+        }
+      }
+
+    }
+  })
+
+</script>
+</body>
+</html>
